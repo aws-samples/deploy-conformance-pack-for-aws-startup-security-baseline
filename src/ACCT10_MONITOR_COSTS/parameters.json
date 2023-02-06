@@ -1,0 +1,13 @@
+{
+  "Version": "1.0",
+  "Parameters": {
+    "RuleName": "ACCT10_MONITOR_COSTS",
+    "Description": "ACCT10_MONITOR_COSTS",
+    "SourceRuntime": "python3.9",
+    "CodeKey": "ACCT10_MONITOR_COSTSeu-west-1.zip",
+    "InputParameters": "{}",
+    "OptionalParameters": "{}",
+    "SourcePeriodic": "TwentyFour_Hours"
+  },
+  "Tags": "[]"
+}

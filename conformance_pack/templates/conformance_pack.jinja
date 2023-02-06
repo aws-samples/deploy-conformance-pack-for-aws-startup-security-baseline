@@ -1,0 +1,25 @@
+Resources:
+{% for i in data['conformance_pack']['rules'] %}
+  {{ i.resource_name }}:
+    Properties:
+      ConfigRuleName: {{ i.rule_name }}
+      Scope:
+        ComplianceResourceTypes:
+      {%- if i.rule_name == "ACCT04_USE_IAM_USER_GROUPS" %}
+        - AWS::IAM::User
+      {%- else %} 
+        - AWS::Lambda::Function
+      {% endif %}
+      Source:
+        Owner: {{ i.owner }}
+      {%- if i.owner == "AWS" %}
+        SourceIdentifier: {{ i.deployed_rule }}
+      {%- else %}
+        SourceIdentifier: !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:{{ i.deployed_rule }}'          
+        SourceDetails:
+          - EventSource: aws.config
+            MaximumExecutionFrequency: TwentyFour_Hours
+            MessageType: ScheduledNotification
+      {% endif %}
+    Type: AWS::Config::ConfigRule
+{% endfor %}

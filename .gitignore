@@ -1,0 +1,19 @@
+*.swp
+package-lock.json
+__pycache__
+.pytest_cache
+.venv
+*.egg-info
+.tox
+.coverage
+coverage-reports/
+junit-reports/
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+# Ignore RDK zips
+rdk/*/*.zip
+out/*.zip
+

@@ -1,0 +1,13 @@
+{
+  "Version": "1.0",
+  "Parameters": {
+    "RuleName": "ACCT12_MONITOR_HIGH_RISK_ISSUES",
+    "Description": "ACCT12_MONITOR_HIGH_RISK_ISSUES",
+    "SourceRuntime": "python3.9",
+    "CodeKey": "ACCT12_MONITOR_HIGH_RISK_ISSUESeu-west-1.zip",
+    "InputParameters": "{}",
+    "OptionalParameters": "{}",
+    "SourcePeriodic": "TwentyFour_Hours"
+  },
+  "Tags": "[]"
+}
