@@ -1,4 +1,3 @@
-
 Startup Security Baseline Account Conformance Pack
 ==========================================
 
@@ -77,4 +76,4 @@ Assuming the Conformance Pack is deployed in a single account in us-east-01 regi
 | __Cost of configuration items__ | 50 * 0.003 | $0.15 |
 | __Cost of AWS Config rules__ |  First 100,000 evaluations at $0.001 each = 1000 * $0.001 | $1 |
 | __Cost of conformance packs__ | First 100,000 conformance pack evaluations at $0.001 each | 1,000 * 0.001 =$1 |
-| __Total AWS Config Bill__ | $0.15 + $1 + $1 | $2.15 |
+| __Estimated Monthly AWS Config Bill__ | $0.15 + $1 + $1 | $2.15 |
