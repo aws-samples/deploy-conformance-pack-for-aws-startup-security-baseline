@@ -36,7 +36,7 @@ This command is run locally from the root of the repository. It will install the
 ### Additional Requirements
 * This sample relies on the [credentials configuration](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) used by the aws-cli. 
 * The target AWS account for the Conformance Pack should be [bootstrapped for CDK](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html) deployments. 
-* **IMPORTANT:** Do NOT run the `cdk bootstrap` process from within the repository directory. This will attempt to deploy the CDK before the account is bootstrapped and will generate errors.
+* **IMPORTANT:** Do NOT run the `cdk bootstrap` process from within the repository directory. This will attempt to deploy the CDK Conformance pack before the account is bootstrapped for CDK and will generate errors.
 ## Install
 
         rdk init --generate-lambda-layer
