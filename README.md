@@ -36,7 +36,7 @@ This command is run locally from the root of the repository. It will install the
 ### Additional Requirements
 * This sample relies on the [credentials configuration](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) used by the aws-cli. 
 * The target AWS account for the Conformance Pack should be [bootstrapped for CDK](https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html) deployments. 
-* **IMPORTANT:** Do NOT run the `cdk bootstrap` command from within the repository directory
+* **IMPORTANT:** Do NOT run the `cdk bootstrap` process from within the repository directory. This will attempt to deploy the CDK before the account is bootstrapped and will generate errors.
 ## Install
 
         rdk init --generate-lambda-layer
@@ -70,7 +70,7 @@ Once completed you can now deploy the CDK application by running the following c
 | ACCT.12 | Monitor high-risk issues | CUSTOM_LAMBDA | ACCT12_MONITOR_HIGH_RISK_ISSUES | Requires Premium Support subscription. Checks Trusted Adivsor for any issues in 'error' state. If Premium Support is not enabled will report as NOT_APPLICABLE and have no status in the Console  |
 
 ## Estimated Cost
-Assuming the Conformance Pack is deployed in a single account in us-east-01 region, with 25 active IAM users (evaulated in detective mode) and 24 active regions. This would give a total number of configuration items of 50. 1 account, 24 regions and 25 IAM users.
+Assuming the Conformance Pack is deployed in a single account in us-east-1 region, with 25 active IAM users (evaulated in detective mode) and 24 active regions. This would give a total number of configuration items of 50. 1 account, 24 regions and 25 IAM users.
 | Cost Definition | Calculation | Cost | 
 | ----------- | ----------- | -------------------- |  
 | __Cost of configuration items__ | 50 * 0.003 | $0.15 |
