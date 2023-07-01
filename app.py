@@ -22,9 +22,9 @@ app = cdk.App()
 rules_stack = Rules(app, "StartupSecurityAccountRules",
                 lambda_functions=lambda_functions,
                 lambda_layer_arn=lambda_layer_arn,
-                description="Custom account security rule for the Startup Security Baseline")
+                description="Custom account security rule for the Startup Security Baseline (uksb-1tupbocl2)")
 
-pack_stack = Pack(app, "StartupSecurityAccountPack", description="Startup Security Baseline Account Conformance Pack").add_dependency(rules_stack)
+pack_stack = Pack(app, "StartupSecurityAccountPack", description="Startup Security Baseline Account Conformance Pack (uksb-1tupbocl2)").add_dependency(rules_stack)
 
 app.synth()
 Aspects.of(app).add(AwsSolutionsChecks(verbose=True))
