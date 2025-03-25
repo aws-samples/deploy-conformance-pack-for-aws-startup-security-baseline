@@ -1,6 +1,7 @@
 from rdklib import Evaluator, Evaluation, ConfigRule, ComplianceType
 import botocore
 
+
 class ACCT12_MONITOR_HIGH_RISK_ISSUES(ConfigRule):
     def evaluate_change(self, event, client_factory, configuration_item, valid_rule_parameters):
         ###############################
@@ -23,18 +24,18 @@ class ACCT12_MONITOR_HIGH_RISK_ISSUES(ConfigRule):
             if ex.response["Error"]["Code"] == "SubscriptionRequiredException":
                 errors = None
         if errors:
-            return [Evaluation(ComplianceType.NON_COMPLIANT, 
-                               resourceId=resource_id, 
+            return [Evaluation(ComplianceType.NON_COMPLIANT,
+                               resourceId=resource_id,
                                resourceType=resource_type,
                                annotation="Check Trusted Advisor")]
         elif errors is None:
-            return [Evaluation(ComplianceType.NOT_APPLICABLE, 
-                               resourceId=resource_id, 
-                               resourceType=resource_type, 
-                               annotation= "Premimum Support Subscription required")]
+            return [Evaluation(ComplianceType.NOT_APPLICABLE,
+                               resourceId=resource_id,
+                               resourceType=resource_type,
+                               annotation="AWS Premium Support Subscription required")]
         else:
-            return [Evaluation(ComplianceType.COMPLIANT, 
-                               resourceId=resource_id, 
+            return [Evaluation(ComplianceType.COMPLIANT,
+                               resourceId=resource_id,
                                resourceType=resource_type,
                                annotation="No Trusted Advisor issues")]
 
@@ -50,4 +51,3 @@ def lambda_handler(event, context):
     my_rule = ACCT12_MONITOR_HIGH_RISK_ISSUES()
     evaluator = Evaluator(my_rule)
     return evaluator.handle(event, context)
-

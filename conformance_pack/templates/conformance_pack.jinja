@@ -3,23 +3,51 @@ Resources:
   {{ i.resource_name }}:
     Properties:
       ConfigRuleName: {{ i.rule_name }}
+      {%- if i.rule_name == "ACCT04_USE_IAM_USER_GROUPS" %}
       Scope:
         ComplianceResourceTypes:
-      {%- if i.rule_name == "ACCT04_USE_IAM_USER_GROUPS" %}
         - AWS::IAM::User
-      {%- else %} 
-        - AWS::Lambda::Function
+{#      {%- else %} #}
+{#        - AWS::Lambda::Function#}
+      {% endif %}
+      {%- if i.rule_name == "WKL06_USE_SYSTEMS_MANAGER_INSTEAD_OF_SSH_OR_RDP" %}
+      Scope:
+        ComplianceResourceTypes:
+        - AWS::EC2::Instance
       {% endif %}
       Source:
         Owner: {{ i.owner }}
       {%- if i.owner == "AWS" %}
         SourceIdentifier: {{ i.deployed_rule }}
       {%- else %}
-        SourceIdentifier: !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:{{ i.deployed_rule }}'          
+        {%- if i.rule_name == "WKL06_USE_SYSTEMS_MANAGER_INSTEAD_OF_SSH_OR_RDP" %}
+        SourceIdentifier: !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:{{ i.deployed_rule }}'
         SourceDetails:
           - EventSource: aws.config
-            MaximumExecutionFrequency: TwentyFour_Hours
+            MessageType: ConfigurationItemChangeNotification
+          - EventSource: aws.config
+            MessageType: OversizedConfigurationItemChangeNotification
+        {%- else %}
+        SourceIdentifier: !Sub 'arn:aws:lambda:${AWS::Region}:${AWS::AccountId}:function:{{ i.deployed_rule }}'
+        SourceDetails:
+          - EventSource: aws.config
+            MaximumExecutionFrequency: One_Hour
             MessageType: ScheduledNotification
+        {% endif %}
+      {% endif %}
+      {%- if i.deployed_rule == "ACCESS_KEYS_ROTATED" %}
+      InputParameters:
+          maxAccessKeyAge: {{ i.maxAccessKeyAge }}
+      {% endif %}
+      {%- if i.deployed_rule == "S3_BUCKET_POLICY_GRANTEE_CHECK" %}
+      InputParameters:
+          awsPrincipals: {{ i.awsPrincipals }}
+      Scope:
+{#        ComplianceResourceTypes:#}
+{#            - "AWS::S3::Bucket"#}
+{#        ComplianceResourceId: {{i.resourceID}}#}
+        TagKey: {{i.TagKey}}
+        TagValue: {{i.TagValue}}
       {% endif %}
     Type: AWS::Config::ConfigRule
 {% endfor %}

@@ -3,11 +3,11 @@
   "Parameters": {
     "RuleName": "ACCT01_SET_ACCOUNT_CONTACTS",
     "Description": "ACCT01_SET_ACCOUNT_CONTACTS",
-    "SourceRuntime": "python3.9",
+    "SourceRuntime": "python3.13",
     "CodeKey": "ACCT01_SET_ACCOUNT_CONTACTSeu-west-1.zip",
     "InputParameters": "{}",
     "OptionalParameters": "{}",
-    "SourcePeriodic": "TwentyFour_Hours"
+    "SourcePeriodic": "One_Hour"
   },
   "Tags": "[]"
 }

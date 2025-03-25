@@ -1,0 +1,69 @@
+conformance_pack:
+  name: SUPSecurityBaseline
+  rules:
+    - resource_name: WKL01
+      rule_name: WKL01_USE_IAM_ROLES_FOR_COMPUTE_ENVIRONMENT_PERMISSIONS
+      deployed_rule: EC2_INSTANCE_PROFILE_ATTACHED
+      owner: AWS
+    - resource_name: WKL02
+      rule_name: WKL02_RESTRICT_CREDENTIAL_USAGE_SCOPE_WITH_RESOURCE_BASED_POLICIES_PERMISSIONS
+      deployed_rule: S3_BUCKET_POLICY_GRANTEE_CHECK
+      # resourceID: ssbworkshop-publicbucket-${AWS::AccountId}
+      awsPrincipals: arn:aws:iam::${AWS::AccountId}:user/User2, arn:aws:iam::${AWS::AccountId}:role/SSBWorkshopNonCompliantRe-CustomS3AutoDeleteObjects*
+      TagKey: Protected
+      TagValue: true
+      owner: AWS
+    - resource_name: WKL03
+      rule_name: WKL03_USE_EPHEMERAL_SECRETS_OR_A_SECRETS_MANAGEMENT_SERVICE
+      deployed_rule: RDS_INSTANCE_IAM_AUTHENTICATION_ENABLED
+      owner: AWS
+    #  - resource_name: WKL04
+    #    rule_name: WKL04_PREVENT_APPLICATION_SECRETS_FROM_BEING_EXPOSED
+    #    deployed_rule: IAM_USER_GROUP_MEMBERSHIP_CHECK
+    #    owner: AWS
+    #  - resource_name: WKL05
+    #    rule_name: WKL05_DETECT_AND_REMEDIATE_EXPOSED_SECRETS
+    #    deployed_rule: IAM_DETECT_AND_REMEDIATE_EXPOSED_SECRETS
+    #    owner: AWS
+    - resource_name: WKL06
+      rule_name: WKL06_USE_SYSTEMS_MANAGER_INSTEAD_OF_SSH_OR_RDP
+      deployed_rule: WKL06_USE_SYSTEMS_MANAGER_INSTEAD_OF_SSH_OR_RDP
+      owner: CUSTOM_LAMBDA
+    - resource_name: WKL07
+      rule_name: WKL07_LOG_DATA_EVENTS_FOR_S3_BUCKETS_WITH_SENSITIVE_DATA
+      deployed_rule: CLOUDTRAIL_S3_BUCKET_ACCESS_LOGGING
+      owner: AWS
+    - resource_name: WKL08
+      rule_name: WKL08_ENCRYPT_AMAZON_EBS_VOLUMES
+      deployed_rule: EC2_EBS_ENCRYPTION_BY_DEFAULT
+      owner: AWS
+    - resource_name: WKL09
+      rule_name: WKL09_ENCRYPT_AMAZON_RDS_DATABASES
+      deployed_rule: RDS_STORAGE_ENCRYPTED
+      owner: AWS
+    - resource_name: WKL10
+      rule_name: WKL10_DEPLOY_PRIVATE_RESOURCES_INTO_PRIVATE_SUBNETS
+      deployed_rule: RDS_INSTANCE_PUBLIC_ACCESS_CHECK
+      owner: AWS
+    - resource_name: WKL11
+      rule_name: WKL11_RESTRICT_NETWORK_ACCESS_BY_USING_SECURITY_GROUPS
+      deployed_rule: INCOMING_SSH_DISABLED
+      owner: AWS
+    - resource_name: WKL12
+      rule_name: WKL12_USE_VPC_ENDPOINTS_TO_ACCESS_SUPPORTED_SERVICES
+      deployed_rule: WKL12_USE_VPC_ENDPOINTS_TO_ACCESS_SUPPORTED_SERVICES
+      owner: CUSTOM_LAMBDA
+#  - resource_name: WKL13
+#    rule_name: WKL_13_REQUIRE_HTTPS_FOR_ALL_PUBLIC_WEB_ENDPOINTS
+#    deployed_rule: INCOMING_SSH_DISABLED
+#    owner: AWS
+#  - resource_name: WKL14
+#    rule_name: WKL14_USE_EDGE_PROTECTION_SERVICES_FOR_PUBLIC_ENDPOINTS
+#    deployed_rule: INCOMING_SSH_DISABLED
+#    owner: AWS
+#  - resource_name: WKL15
+#    rule_name: WKL15_DEFINE_SECURITY_CONTROLS_IN_TEMPLATES_AND_DEPLOY_THEM_BY_USING_CI_CD_PRACTICES
+#    deployed_rule: INCOMING_SSH_DISABLED
+#    owner: AWS
+
+

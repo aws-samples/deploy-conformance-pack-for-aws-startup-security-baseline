@@ -1,52 +1,54 @@
 conformance_pack:
-  name: SUPSecurityAccountBaseline
+  name: SUPSecurityBaseline
   rules:
-  - resource_name: ACCT01
-    rule_name: ACCT01_SET_ACCOUNT_CONTACTS
-    deployed_rule: ACCT01_SET_ACCOUNT_CONTACTS
-    owner: CUSTOM_LAMBDA
-  - resource_name: ACCT02
-    rule_name: ACCT02_RESTRICT_ROOT_USER
-    deployed_rule: ROOT_ACCOUNT_MFA_ENABLED
-    owner: AWS
-  - resource_name: ACCT03
-    rule_name: ACCT03_CONFIGURE_CONSOLE_ACCESS
-    deployed_rule: MFA_ENABLED_FOR_IAM_CONSOLE_ACCESS
-    owner: AWS
-  - resource_name: ACCT04
-    rule_name: ACCT04_USE_IAM_USER_GROUPS
-    deployed_rule: IAM_USER_GROUP_MEMBERSHIP_CHECK
-    owner: AWS
-  - resource_name: ACCT05
-    rule_name: ACCT05_REQUIRE_MFA
-    deployed_rule: IAM_USER_MFA_ENABLED
-    owner: AWS
-  - resource_name: ACCT06
-    rule_name: ACCT06_ENFORCE_A_PASSWORD_POLICY
-    deployed_rule: IAM_PASSWORD_POLICY
-    owner: AWS
-  - resource_name: ACCT07
-    rule_name: ACCT07_LOG_EVENTS
-    deployed_rule: CLOUDTRAIL_SECURITY_TRAIL_ENABLED
-    owner: AWS
-  - resource_name: ACCT08
-    rule_name: ACCT08_PREVENT_PUBLIC_ACCESS_TO_PRIVATE_S3_BUCKETS
-    deployed_rule: S3_ACCOUNT_LEVEL_PUBLIC_ACCESS_BLOCKS_PERIODIC
-    owner: AWS
-  - resource_name: ACCT09
-    rule_name: ACCT09_DELETE_UNUSED_RESOURCES
-    deployed_rule: ACCT09_DELETE_UNUSED_RESOURCES
-    owner: CUSTOM_LAMBDA
-  - resource_name: ACCT10
-    rule_name: ACCT10_MONITOR_COSTS
-    deployed_rule: ACCT10_MONITOR_COSTS
-    owner: CUSTOM_LAMBDA
-  - resource_name: ACCT11
-    rule_name: ACCT11_ENABLE_GUARDDUTY
-    deployed_rule: GUARDDUTY_ENABLED_CENTRALIZED
-    owner: AWS
-  - resource_name: ACCT12
-    rule_name: ACCT12_MONITOR_HIGH_RISK_ISSUES
-    deployed_rule: ACCT12_MONITOR_HIGH_RISK_ISSUES
-    owner: CUSTOM_LAMBDA
+    - resource_name: ACCT01
+      rule_name: ACCT01_SET_ACCOUNT_CONTACTS
+      deployed_rule: ACCT01_SET_ACCOUNT_CONTACTS
+      owner: CUSTOM_LAMBDA
+    - resource_name: ACCT02
+      rule_name: ACCT02_RESTRICT_ROOT_USER
+      deployed_rule: ROOT_ACCOUNT_MFA_ENABLED
+      owner: AWS
+    - resource_name: ACCT03
+      rule_name: ACCT03_ACCESS_KEYS_ROTATED
+      deployed_rule: ACCESS_KEYS_ROTATED
+      maxAccessKeyAge: 90
+      owner: AWS
+    - resource_name: ACCT04
+      rule_name: ACCT04_USE_IAM_USER_GROUPS
+      deployed_rule: IAM_USER_GROUP_MEMBERSHIP_CHECK
+      owner: AWS
+    - resource_name: ACCT05
+      rule_name: ACCT05_REQUIRE_MFA
+      deployed_rule: IAM_USER_MFA_ENABLED
+      owner: AWS
+    - resource_name: ACCT06
+      rule_name: ACCT06_ENFORCE_A_PASSWORD_POLICY
+      deployed_rule: IAM_PASSWORD_POLICY
+      owner: AWS
+    - resource_name: ACCT07
+      rule_name: ACCT07_LOG_EVENTS
+      deployed_rule: CLOUDTRAIL_SECURITY_TRAIL_ENABLED
+      owner: AWS
+    - resource_name: ACCT08
+      rule_name: ACCT08_PREVENT_PUBLIC_ACCESS_TO_PRIVATE_S3_BUCKETS
+      deployed_rule: S3_ACCOUNT_LEVEL_PUBLIC_ACCESS_BLOCKS_PERIODIC
+      owner: AWS
+    - resource_name: ACCT09
+      rule_name: ACCT09_DELETE_UNUSED_RESOURCES
+      deployed_rule: ACCT09_DELETE_UNUSED_RESOURCES
+      owner: CUSTOM_LAMBDA
+    - resource_name: ACCT10
+      rule_name: ACCT10_MONITOR_COSTS
+      deployed_rule: ACCT10_MONITOR_COSTS
+      owner: CUSTOM_LAMBDA
+    - resource_name: ACCT11
+      rule_name: ACCT11_ENABLE_GUARDDUTY
+      deployed_rule: GUARDDUTY_ENABLED_CENTRALIZED
+      owner: AWS
+    - resource_name: ACCT12
+      rule_name: ACCT12_MONITOR_HIGH_RISK_ISSUES
+      deployed_rule: ACCT12_MONITOR_HIGH_RISK_ISSUES
+      owner: CUSTOM_LAMBDA
+
 

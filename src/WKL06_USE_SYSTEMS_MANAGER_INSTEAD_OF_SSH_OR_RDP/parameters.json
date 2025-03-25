@@ -1,0 +1,13 @@
+{
+  "Version": "1.0",
+  "Parameters": {
+    "RuleName": "WKL06_USE_SYSTEMS_MANAGER_INSTEAD_OF_SSH_OR_RDP",
+    "Description": "WKL06_USE_SYSTEMS_MANAGER_INSTEAD_OF_SSH_OR_RDP",
+    "SourceRuntime": "python3.13",
+    "CodeKey": "WKL06_USE_SYSTEMS_MANAGER_INSTEAD_OF_SSH_OR_RDPeu-west-1.zip",
+    "InputParameters": "{}",
+    "OptionalParameters": "{}",
+    "SourcePeriodic": "One_Hour"
+  },
+  "Tags": "[]"
+}
