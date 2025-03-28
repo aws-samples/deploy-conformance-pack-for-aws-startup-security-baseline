@@ -1,0 +1,13 @@
+{
+  "Version": "1.0",
+  "Parameters": {
+    "RuleName": "WK12_USE_VPC_ENDPOINTS_TO_ACCESS_SUPPORTED_SERVICES",
+    "Description": "WK12_USE_VPC_ENDPOINTS_TO_ACCESS_SUPPORTED_SERVICES",
+    "SourceRuntime": "python3.13",
+    "CodeKey": "WK12_USE_VPC_ENDPOINTS_TO_ACCESS_SUPPORTED_SERVICESeu-west-1.zip",
+    "InputParameters": "{}",
+    "OptionalParameters": "{}",
+    "SourcePeriodic": "One_Hour"
+  },
+  "Tags": "[]"
+}

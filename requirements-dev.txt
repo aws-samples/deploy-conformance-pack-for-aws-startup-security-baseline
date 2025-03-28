@@ -1,5 +1,5 @@
-pytest==6.2.5
+pytest==8.3.5
 pytest-cov==4.0.0
-moto==4.0.11
-cdk-nag==2.21.29
-mock==2.0.0
+moto==5.1.1
+cdk-nag==2.35.49
+mock==5.2.0

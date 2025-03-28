@@ -1,5 +1,6 @@
 from rdklib import Evaluator, Evaluation, ConfigRule, ComplianceType
 
+
 class ACCT09_DELETE_UNUSED_RESOURCES(ConfigRule):
     def evaluate_change(self, event, client_factory, configuration_item, valid_rule_parameters):
         ###############################
@@ -21,15 +22,15 @@ class ACCT09_DELETE_UNUSED_RESOURCES(ConfigRule):
                 if vpc['IsDefault']:
                     vpc_with_default.append(region)
         if vpc_with_default:
-            return [Evaluation(ComplianceType.NON_COMPLIANT, 
-                               resourceId=resource_id, 
+            return [Evaluation(ComplianceType.NON_COMPLIANT,
+                               resourceId=resource_id,
                                resourceType=resource_type,
                                annotation=f"Default VPCs active in account")]
         else:
-            return [Evaluation(ComplianceType.COMPLIANT, 
-                               resourceId=resource_id, 
+            return [Evaluation(ComplianceType.COMPLIANT,
+                               resourceId=resource_id,
                                resourceType=resource_type,
-                               annotation = f"No Default VPCs active")]
+                               annotation=f"No Default VPCs active")]
 
     def evaluate_parameters(self, rule_parameters):
         valid_rule_parameters = rule_parameters

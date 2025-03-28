@@ -1,5 +1,6 @@
 from rdklib import Evaluator, Evaluation, ConfigRule, ComplianceType
 
+
 class ACCT01_SET_ACCOUNT_CONTACTS(ConfigRule):
     def evaluate_change(self, event, client_factory, configuration_item, valid_rule_parameters):
         ###############################
@@ -12,7 +13,7 @@ class ACCT01_SET_ACCOUNT_CONTACTS(ConfigRule):
         resource_id = event["accountId"]
         resource_type = "AWS::::Account"
         client = client_factory.build_client('account')
-        contact_types = ['BILLING', 'OPERATIONS', 'SECURITY'] # need to make this configuration 
+        contact_types = ['BILLING', 'OPERATIONS', 'SECURITY']  # need to make this configuration
         result = dict()
         for contact in contact_types:
             try:
@@ -22,13 +23,13 @@ class ACCT01_SET_ACCOUNT_CONTACTS(ConfigRule):
                 result[contact] = False
         missing_alternative_contacts = [x for x in result if not result[x]]
         if missing_alternative_contacts:
-            return [Evaluation(ComplianceType.NON_COMPLIANT, 
-                               resourceId=resource_id, 
+            return [Evaluation(ComplianceType.NON_COMPLIANT,
+                               resourceId=resource_id,
                                resourceType=resource_type,
                                annotation="Alternative account contacts missing")]
         else:
-            return [Evaluation(ComplianceType.COMPLIANT, 
-                               resourceId=resource_id, 
+            return [Evaluation(ComplianceType.COMPLIANT,
+                               resourceId=resource_id,
                                resourceType=resource_type,
                                annotation="Alternative account contacts configured")]
 

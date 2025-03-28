@@ -3,11 +3,11 @@
   "Parameters": {
     "RuleName": "ACCT09_DELETE_UNUSED_RESOURCES",
     "Description": "ACCT09_DELETE_UNUSED_RESOURCES",
-    "SourceRuntime": "python3.9-lib",
+    "SourceRuntime": "python3.13",
     "CodeKey": "ACCT09_DELETE_UNUSED_RESOURCESeu-west-1.zip",
     "InputParameters": "{}",
     "OptionalParameters": "{}",
-    "SourcePeriodic": "TwentyFour_Hours"
+    "SourcePeriodic": "One_Hour"
   },
   "Tags": "[]"
 }
